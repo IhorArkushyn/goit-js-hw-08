@@ -8,13 +8,15 @@ player.on('play', function () {
   console.log('played the video!');
 });
 
-
 const CURRENT_TIME_KEY = 'videoplayer-current-time';
 
-const getCurrentTime = function ({seconds}) {
-  localStorage.setItem(CURRENT_TIME_KEY, seconds) ;
+const getCurrentTime = function ({ seconds }) {
+  localStorage.setItem(CURRENT_TIME_KEY, seconds);
 };
 
 player.on('timeupdate', throttle(getCurrentTime, 1000));
 
 player.setCurrentTime(localStorage.getItem(CURRENT_TIME_KEY) || 0);
+
+localStorage.removeItem(CURRENT_TIME_KEY);
+
