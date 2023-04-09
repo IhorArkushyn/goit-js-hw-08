@@ -21,9 +21,9 @@ submitForm.addEventListener('submit', onFormSubmit);
 function onFormSubmit(event) {
   event.preventDefault();
 
-  const savedData = localStorage.getItem(STORAGE_KEY) || {};
+  const savedData = localStorage.getItem(STORAGE_KEY);
   const parseData = JSON.parse(savedData);
-  console.log(parseData);
+  console.log(parseData || {});
 
   submitForm.reset();
   localStorage.removeItem(STORAGE_KEY);
