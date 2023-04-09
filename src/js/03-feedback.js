@@ -23,7 +23,12 @@ function onFormSubmit(event) {
 
   const savedData = localStorage.getItem(STORAGE_KEY);
   const parseData = JSON.parse(savedData);
-  console.log(parseData || {});
+  console.log(
+    parseData || {
+      email: '',
+      message: ''
+    }
+  );
 
   submitForm.reset();
   localStorage.removeItem(STORAGE_KEY);
